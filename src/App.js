@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Navbar from './components/NavBar/NavBar';
+import { RecipeProvider } from './Store/RecipeProvider';
+import Main from './components/Main/Main';
+import NotFound from './components/Error/PageNotFound';
+import Recipe from './components/Main/Recipe/Recipe';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppBox>
+        <RecipeProvider>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Main} />
+            <Route path='/recipe' component={Recipe} />
+            <Route component={NotFound} />
+          </Switch>
+        </RecipeProvider>
+      </AppBox>
+    </Router>
   );
 }
 
 export default App;
+
+const AppBox = styled.div`
+height: 100%;
+width: 100%;
+background-color: #EEE2DC;
+display: flex;
+overflow: auto;
+`;
