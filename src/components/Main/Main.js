@@ -8,13 +8,12 @@ import Loader from '../Loader/Loader';
 
 const Main = () => {
 
-    const { recipes, isFetching } = useData();
+    const { isFetching } = useData();
 
-    let show = recipes ? <List /> : <Empty />
 
     return (
         <Box>
-            {!isFetching ? <Loader /> : show}
+            {isFetching ? <Empty /> : <List />}
         </Box>
     )
 };

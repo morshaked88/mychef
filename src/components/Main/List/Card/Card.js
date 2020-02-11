@@ -2,21 +2,26 @@ import React from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 import { useData } from '../../../../Store/RecipeProvider';
+import * as getInfo from '../../../../services/getRecipeInfo';
 
 const Card = ({ item }) => {
 
-    const { setCurrentRecipe } = useData();
+    const { setCurrentRecipe, setFetching, currentRecipe, setRecipe, setRecipeFetching, recipeFetching, recipe } = useData();
 
     const obj = {
         ...item
     }
 
-    const getRecipeData = (obj) => {
-        setCurrentRecipe(obj)
+    const getRecipeData = async (obj) => {
+        setCurrentRecipe(obj);
+        setFetching(true);
     }
 
+    console.log(recipe, currentRecipe)
+
+
     return (
-        <Box onClick={() => getRecipeData(obj)}>
+        <Box onClick={() => getRecipeData(obj.id)}>
             <StyledLink to='/recipe'>
                 <Img src={`https://webknox.com/recipeImages/${obj.image}`} />
                 <Box2>
