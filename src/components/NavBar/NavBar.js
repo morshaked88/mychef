@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import { useData } from '../../Store/RecipeProvider';
 
@@ -13,20 +14,22 @@ const NavBar = () => {
 
     const { shoppingList, open, setOpen } = useData();
 
-    const deviceWidth = window.innerWidth;
+    const deviceWidth = window.innerWidth >= 768;
 
     const iconStyleS = {
         color: '#EEE2DC',
         height: '100%',
         fontSize: '30px',
-        display: `${deviceWidth < 768 ? 'block' : 'none'}`
+        display: `${deviceWidth ? 'none' : 'block'}`,
+        cursor: 'pointer'
     }
 
 
     const iconStyleC = {
         color: '#EEE2DC',
         height: '100%',
-        fontSize: '30px'
+        fontSize: `${deviceWidth ? '40px' : '30px'}`,
+        cursor: 'pointer'
     }
 
     return (
@@ -38,7 +41,7 @@ const NavBar = () => {
                     </Box3>
                     <Logo />
                     <SearchDesktop />
-                    <Box2>
+                    <Box2 to='/shop'>
                         <FontAwesomeIcon icon={faShoppingCart} style={iconStyleC} />
                         <Span>x {shoppingList.length}</Span>
                     </Box2>
@@ -77,7 +80,7 @@ align-items: center;
 }
 `;
 
-const Box2 = styled.div`
+const Box2 = styled(Link)`
 height: 100%;
 display: flex;
 align-items: center;
@@ -101,5 +104,9 @@ const Span = styled.span`
 color: #EEE2DC;
 font-size: 16px;
 margin-left: 3px;
+
+@media only screen and (min-width: 768px) {
+    font-size: 20px;
+}
 `;
 

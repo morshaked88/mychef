@@ -4,7 +4,6 @@ import * as searchRecipe from '../services/RecipeData';
 const RecipeContext = createContext();
 const { Provider } = RecipeContext;
 
-
 const useData = () => {
     const context = useContext(RecipeContext);
     if (!context) {
@@ -12,6 +11,7 @@ const useData = () => {
     }
     return context;
 }
+
 
 const RecipeProvider = ({ children }) => {
     const [isFetching, setFetching] = useState(true);

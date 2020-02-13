@@ -8,7 +8,6 @@ import * as getInfo from '../../../services/getRecipeInfo';
 const Recipe = () => {
     const { recipeFetching, currentRecipe, recipe, setRecipe, setRecipeFetching } = useData();
 
-    console.log(currentRecipe, recipe);
 
     useEffect(() => {
 
@@ -21,7 +20,7 @@ const Recipe = () => {
         info();
 
         return () => {
-            setRecipeFetching(true);
+            setRecipeFetching(!recipeFetching);
         }
     }, [])
 
@@ -33,6 +32,7 @@ const Recipe = () => {
         </Box>
     )
 };
+
 
 export default Recipe;
 

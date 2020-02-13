@@ -6,6 +6,7 @@ import Card from './Card/Card';
 
 const List = () => {
     const { recipes } = useData();
+    console.log(recipes)
 
     const show = (recipes.map(item => {
 

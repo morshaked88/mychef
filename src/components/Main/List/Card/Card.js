@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 import { useData } from '../../../../Store/RecipeProvider';
-import * as getInfo from '../../../../services/getRecipeInfo';
 
 const Card = ({ item }) => {
 
-    const { setCurrentRecipe, setFetching, currentRecipe, setRecipe, setRecipeFetching, recipeFetching, recipe } = useData();
+    const { setCurrentRecipe, setFetching } = useData();
 
     const obj = {
         ...item
@@ -16,8 +15,6 @@ const Card = ({ item }) => {
         setCurrentRecipe(obj);
         setFetching(true);
     }
-
-    console.log(recipe, currentRecipe)
 
 
     return (
@@ -34,7 +31,7 @@ const Card = ({ item }) => {
 };
 
 
-export default Card;
+export default memo(Card);
 
 const StyledLink = styled(Link)`
 display: flex;

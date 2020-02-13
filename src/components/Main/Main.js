@@ -2,9 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useData } from '../../Store/RecipeProvider';
-import Empty from './Empty/Empty';
+import EmptySearch from './Empty/EmptySearch';
 import List from './List/List';
-import Loader from '../Loader/Loader';
 
 const Main = () => {
 
@@ -13,7 +12,7 @@ const Main = () => {
 
     return (
         <Box>
-            {isFetching ? <Empty /> : <List />}
+            {isFetching ? <EmptySearch /> : <List />}
         </Box>
     )
 };

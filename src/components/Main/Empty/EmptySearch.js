@@ -14,8 +14,10 @@ export default Empty;
 const Box = styled.div`
 width: 100%;
 height: 100%;
+
 `;
 
 const Header = styled.h1`
 margin-top: 10px;
+
 `;

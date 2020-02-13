@@ -16,5 +16,7 @@ const IngreditentsList = () => {
 export default IngreditentsList;
 
 const Box = styled.div`
-
+@media only screen and (min-width: 768px) {
+    margin-bottom: 100px;
+}
 `;

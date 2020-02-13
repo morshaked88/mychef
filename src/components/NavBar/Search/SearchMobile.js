@@ -6,7 +6,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useData } from '../../../Store/RecipeProvider';
 
 const Search = () => {
-    const { setOpen, open, searchInput, setInput } = useData();
+    const { setOpen, open, setInput } = useData();
 
     const iconStyle = {
         fontSize: '20px',

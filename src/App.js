@@ -7,9 +7,11 @@ import { RecipeProvider } from './Store/RecipeProvider';
 import Main from './components/Main/Main';
 import NotFound from './components/Error/PageNotFound';
 import Recipe from './components/Main/Recipe/Recipe';
+import Shop from './components/Main/Shop/Shop';
 
 
-function App() {
+const App = () => {
+
   return (
     <Router>
       <AppBox>
@@ -18,6 +20,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={Main} />
             <Route path='/recipe' component={Recipe} />
+            <Route path='/shop' component={Shop} />
             <Route component={NotFound} />
           </Switch>
         </RecipeProvider>
